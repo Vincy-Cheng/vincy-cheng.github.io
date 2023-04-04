@@ -1,5 +1,5 @@
 import useDarkMode from '../hooks/useDarkMode.hook';
-import { Activity, MoonStars, Sun } from 'tabler-icons-react';
+import { MoonStars, Sun } from 'tabler-icons-react';
 
 type Props = {};
 
@@ -11,9 +11,7 @@ const DarkModeSwitch = (props: Props) => {
         type="checkbox"
         className="sr-only peer hidden"
         checked={isDarkMode}
-        onChange={(event) => {
-          toggle();
-        }}
+        onChange={toggle}
       />
       <div className="block bg-yellow-100 w-14 h-8 rounded-full peer-checked:bg-gray-600"></div>
       <Sun className="w-6 bg-yellow-400 absolute left-1 top-1 text-white rounded-full transition peer-checked:translate-x-full peer-checked:invisible peer-hover:shadow-[0px_0px_4px_4px_rgba(235,177,61,0.32)] "></Sun>
