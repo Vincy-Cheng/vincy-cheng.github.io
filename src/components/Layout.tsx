@@ -1,8 +1,8 @@
 import useDarkMode from '../hooks/useDarkMode.hook';
 import { ReactElement, useEffect, useState } from 'react';
 import Header from './Header';
-import MenuIcon from './MenuIcon';
-import Navbar from './Navbar';
+import MenuIcon from './nav/MenuIcon';
+import Navbar from './nav/Navbar';
 
 type LayoutProps = {
   children: ReactElement;
@@ -25,8 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
         />
         <Header />
       </div>
-      <div className="mb-auto">
-        <Navbar></Navbar>
+      <div className="mb-auto w-full">
+        <Navbar />
         <div className="p-2">{children}</div>
       </div>
     </div>
