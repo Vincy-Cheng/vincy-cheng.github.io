@@ -8,7 +8,8 @@ type NavbarMenuProps = {
   isSideBarOpen: boolean;
 };
 
-const MenuItemClasses = 'block float-left stroke-1 w-9 dark:text-secondary-50';
+const MenuItemClasses =
+  'block float-left stroke-1 w-9 dark:text-secondary-50 text-secondary-900';
 const menuItems: ISideBarMenuItem[] = [
   {
     path: '/',

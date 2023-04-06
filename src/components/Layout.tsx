@@ -3,6 +3,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import Header from './Header';
 import MenuIcon from './nav/MenuIcon';
 import Navbar from './nav/Navbar';
+import Footer from './Footer';
 
 type LayoutProps = {
   children: ReactElement;
@@ -29,6 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Navbar isSideBarOpen={isSideBarOpen} />
         <div className="p-2">{children}</div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };
