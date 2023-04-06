@@ -4,8 +4,8 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <div className="w-full flex items-center justify-between flex-row p-2 relative duration-300">
-      <div className="text-primary-900 dark:text-primary-100">Header</div>
+    <div className="flex flex-1 items-center justify-between flex-row p-2 relative duration-300">
+      <div className="text-secondary-900 dark:text-secondary-100">Header</div>
       <DarkModeSwitch />
     </div>
   );

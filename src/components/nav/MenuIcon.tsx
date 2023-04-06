@@ -14,16 +14,15 @@ const MenuIcon = ({ isSideBarOpen, setIsSideBarOpen }: MenuIconProps) => {
   return (
     <div
       className={clsx(
-        'dark:text-white p-2 relative duration-300',
+        'dark:text-secondary-50 relative duration-300 p-2 pl-3',
         isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
       )}
+      onClick={() => setIsSideBarOpen((prev) => !prev)}
     >
-      <div className="" onClick={() => setIsSideBarOpen((prev) => !prev)}>
-        <Menu2
-          size={28}
-          className="dark:text-white rounded-full hover:bg-neutral-600 active:bg-neutral-500 p-1 cursor-pointer"
-        />
-      </div>
+      <Menu2
+        size={28}
+        className="dark:text-secondary-50 rounded-full hover:bg-secondary-200 dark:hover:bg-secondary-600 active:bg-secondary-500 dark:active:bg-secondary-500 p-1 cursor-pointer"
+      />
     </div>
   );
 };

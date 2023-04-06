@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
     console.log(isDarkMode);
   }, [isDarkMode]);
   return (
-    <div className="flex flex-col h-screen w-full bg-white dark:bg-neutral-900 ">
+    <div className="flex flex-col h-screen w-full bg-secondary-50 dark:bg-secondary-900 ">
       <div className="flex ">
         <MenuIcon
           isSideBarOpen={isSideBarOpen}
@@ -25,8 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
         />
         <Header />
       </div>
-      <div className="mb-auto w-full">
-        <Navbar />
+      <div className="mb-auto w-full flex">
+        <Navbar isSideBarOpen={isSideBarOpen} />
         <div className="p-2">{children}</div>
       </div>
     </div>
