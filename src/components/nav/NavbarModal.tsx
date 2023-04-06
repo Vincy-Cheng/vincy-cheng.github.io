@@ -1,9 +1,14 @@
 import React from 'react';
+import MenuIcon from './MenuIcon';
 
-type Props = {};
+type NavbarModalProps = {};
 
-const NavbarModal = (props: Props) => {
-  return <div>NavbarModal</div>;
+const NavbarModal = ({}: NavbarModalProps) => {
+  return (
+    <div className="absolute h-screen w-screen bg-white">
+      <MenuIcon />
+    </div>
+  );
 };
 
 export default NavbarModal;

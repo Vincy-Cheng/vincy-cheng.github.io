@@ -1,13 +1,12 @@
 import clsx from 'clsx';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { Menu2 } from 'tabler-icons-react';
+import { useMenu } from '../../provider/MenuOpenProvider';
 
-type MenuIconProps = {
-  isSideBarOpen: boolean;
-  setIsSideBarOpen: Dispatch<SetStateAction<boolean>>;
-};
+type MenuIconProps = {};
 
-const MenuIcon = ({ isSideBarOpen, setIsSideBarOpen }: MenuIconProps) => {
+const MenuIcon = ({}: MenuIconProps) => {
+  const menu = useMenu();
   const sideBarOpenWidth = 'sm:w-[240px] ';
   const sideBarCloseWidth = 'sm:w-[52px]';
 
@@ -15,9 +14,9 @@ const MenuIcon = ({ isSideBarOpen, setIsSideBarOpen }: MenuIconProps) => {
     <div
       className={clsx(
         'dark:text-secondary-50 relative duration-300 p-2 pl-3',
-        isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
+        menu.isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
       )}
-      onClick={() => setIsSideBarOpen((prev) => !prev)}
+      onClick={() => menu.toggle()}
     >
       <Menu2
         size={28}

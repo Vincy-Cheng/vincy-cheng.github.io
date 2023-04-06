@@ -2,11 +2,10 @@ import { clsx } from 'clsx';
 import Link from 'next/link';
 import React from 'react';
 import { LayoutGrid, Home2 } from 'tabler-icons-react';
+import { useMenu } from '../../provider/MenuOpenProvider';
 import { ISideBarMenuItem } from '../../types';
 
-type NavbarMenuProps = {
-  isSideBarOpen: boolean;
-};
+type NavbarMenuProps = {};
 
 const MenuItemClasses =
   'block float-left stroke-1 w-9 dark:text-secondary-50 text-secondary-900';
@@ -23,7 +22,8 @@ export const menuItems: ISideBarMenuItem[] = [
   },
 ];
 
-const NavbarMenu = ({ isSideBarOpen }: NavbarMenuProps) => {
+const NavbarMenu = ({}: NavbarMenuProps) => {
+  const menu = useMenu();
   return (
     <>
       {menuItems.map((route, index) => (
@@ -35,7 +35,7 @@ const NavbarMenu = ({ isSideBarOpen }: NavbarMenuProps) => {
           <span>{route.icon}</span>
           <p
             className={clsx('duration-100 dark:text-secondary-50', {
-              ['scale-0 whitespace-nowrap']: !isSideBarOpen,
+              ['scale-0 whitespace-nowrap']: !menu.isSideBarOpen,
             })}
           >
             {route.title}
