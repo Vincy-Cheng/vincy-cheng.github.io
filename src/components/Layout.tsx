@@ -23,16 +23,14 @@ const Layout = ({ children }: LayoutProps) => {
         <span className="hidden sm:block">
           <Navbar />
         </span>
-        {isSideBarOpen && (
-          <span
-            className={clsx(
-              '',
-              isSideBarOpen ? 'opacity-95 duration-500' : 'opacity-0',
-            )}
-          >
-            <NavbarModal />
-          </span>
-        )}
+        <div
+          className={clsx(
+            'h-full fixed z-1 top-0 left-0 bg-secondary-50 dark:bg-secondary-900 overflow-y-hidden duration-500',
+            isSideBarOpen ? 'w-full' : 'w-0',
+          )}
+        >
+          <NavbarModal />
+        </div>
 
         <div className="p-2">{children}</div>
       </div>

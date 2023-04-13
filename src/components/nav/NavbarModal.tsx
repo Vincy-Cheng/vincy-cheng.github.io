@@ -1,13 +1,17 @@
 import React from 'react';
 import MenuIcon from './MenuIcon';
+import NavbarMenu from './NavbarMenu';
 
 type NavbarModalProps = {};
 
 const NavbarModal = ({}: NavbarModalProps) => {
   return (
-    <div className="absolute h-screen w-screen bg-white">
+    <>
       <MenuIcon />
-    </div>
+      <div className="p-2">
+        <NavbarMenu />
+      </div>
+    </>
   );
 };
 
