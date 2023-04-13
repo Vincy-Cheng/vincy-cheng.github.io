@@ -25,7 +25,7 @@ const Layout = ({ children }: LayoutProps) => {
         </span>
         <div
           className={clsx(
-            'h-full fixed z-1 top-0 left-0 bg-secondary-50 dark:bg-secondary-900 overflow-y-hidden duration-500',
+            'block sm:hidden h-full fixed z-10 top-0 left-0 bg-secondary-50 dark:bg-secondary-900 overflow-y-hidden duration-500',
             isSideBarOpen ? 'w-full' : 'w-0',
           )}
         >

@@ -34,9 +34,12 @@ const NavbarMenu = ({}: NavbarMenuProps) => {
         >
           <span>{route.icon}</span>
           <p
-            className={clsx('duration-100 dark:text-secondary-50', {
-              ['scale-0 whitespace-nowrap']: !menu.isSideBarOpen,
-            })}
+            className={clsx(
+              'duration-100 dark:text-secondary-50 whitespace-nowrap',
+              {
+                ['scale-0 ']: !menu.isSideBarOpen,
+              },
+            )}
           >
             {route.title}
           </p>
