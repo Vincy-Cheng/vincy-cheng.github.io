@@ -46,7 +46,11 @@ const NavbarMenu = ({}: NavbarMenuProps) => {
           href={`${route.path}`}
           key={'menu-item-' + index}
           className="w-full inline-flex py-2 space-x-2 cursor-pointer rounded-xl hover:bg-secondary-200 active:bg-secondary-300 dark:hover:bg-secondary-700 dark:active:bg-secondary-600"
-          onClick={() => menu.toggle()}
+          onClick={() => {
+            if (window.innerWidth <= 600) {
+              menu.toggle();
+            }
+          }}
         >
           <span>{route.icon}</span>
           <p
