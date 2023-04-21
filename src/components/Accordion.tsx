@@ -11,10 +11,10 @@ const Accordion = ({ header, children }: AccordionProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <div className="text-secondary-900 dark:text-secondary-50 w-full">
+    <div className="p-2 rounded text-secondary-900 dark:text-secondary-50 w-full shadow dark:shadow-secondary-700">
       <div
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full justify-between cursor-pointer"
+        className="flex w-full justify-between cursor-pointer items-center"
       >
         {header}{' '}
         <ChevronDown
@@ -26,8 +26,8 @@ const Accordion = ({ header, children }: AccordionProps) => {
 
       <div
         className={clsx(
-          'm-2 overflow-x-auto overflow-y-hidden transition-[max-height] duration-300 ease-in-out',
-          open ? 'max-h-screen ' : 'max-h-0',
+          'overflow-x-auto overflow-y-hidden transition-[max-height] duration-300 ease-in-out',
+          open ? 'max-h-screen' : 'max-h-0',
         )}
       >
         {children}

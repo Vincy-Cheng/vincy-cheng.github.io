@@ -203,12 +203,12 @@ const Experience = (props: Props) => {
         </p>
 
         <Accordion header={'Languages'}>
-          <table className="min-w-[600px] table-fixed overflow-auto relative border-separate">
-            <tr className="text-left ">
+          <table className="min-w-[600px] w-full table-fixed overflow-auto relative border-separate">
+            <tr className="text-left">
               <th className="grow">Language</th>
               <th className="w-[20%]">Level</th>
               <th className="w-[20%]">Start date</th>
-              <th className="w-[20%]">Around year</th>
+              <th className="w-[20%] text">Around year</th>
             </tr>
             {skills
               .filter((skill) => skill.type === SkillType.language)
