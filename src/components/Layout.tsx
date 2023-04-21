@@ -14,7 +14,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   const { isSideBarOpen } = useMenu();
   return (
-    <div className="flex flex-col h-screen w-full bg-secondary-50 dark:bg-secondary-900 font-mono">
+    <div className="flex flex-col min-h-screen w-full bg-secondary-50 dark:bg-secondary-900 font-mono">
       <div className="flex ">
         <MenuIcon />
         <Header />
@@ -32,7 +32,7 @@ const Layout = ({ children }: LayoutProps) => {
           <NavbarModal />
         </div>
 
-        <div className="p-2">{children}</div>
+        <div className="p-2 w-full overflow-auto">{children}</div>
       </div>
       <Footer />
     </div>

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { Dispatch, SetStateAction, useState } from 'react';
-import { Menu2 } from 'tabler-icons-react';
+import { X, Menu2 } from 'tabler-icons-react';
 import { useMenu } from '../../provider/MenuOpenProvider';
 
 type MenuIconProps = {};
@@ -18,6 +17,8 @@ const MenuIcon = ({}: MenuIconProps) => {
       )}
       onClick={() => menu.toggle()}
     >
+      <input type="checkbox" className="sr-only peer hidden" />
+
       <Menu2
         size={28}
         className="dark:text-secondary-50 rounded-full hover:bg-secondary-200 dark:hover:bg-secondary-600 active:bg-secondary-500 dark:active:bg-secondary-500 p-1 cursor-pointer"

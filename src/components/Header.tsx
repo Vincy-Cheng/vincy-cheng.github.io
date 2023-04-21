@@ -15,7 +15,7 @@ const Header = ({}: HeaderProps) => {
   }, [asPath]);
   return (
     <div className="flex flex-1 items-center justify-between flex-row p-2 relative duration-300">
-      <div className="text-secondary-900 dark:text-secondary-100 text-lg">
+      <div className="text-secondary-900 dark:text-secondary-100 text-xl">
         {header}
       </div>
       <DarkModeSwitch />
