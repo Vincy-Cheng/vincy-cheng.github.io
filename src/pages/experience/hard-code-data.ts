@@ -189,4 +189,12 @@ const skills: SkillExperienceSet[] = [
 	},
 ];
 
-export { skills, SkillType }
+const works: WorkExperienceSet[] = [{
+	position: 'Solution Developer',
+	description: ['Understand client project\'s business logic.', 'Developed different tools for client use and internal use'],
+	company: 'Fivestones',
+	startDate: new Date('2022-06-20'),
+	endDate: new Date()
+}]
+
+export { skills, SkillType, works }

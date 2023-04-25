@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import Image from 'next/image';
 import Header from './Header';
 import MenuIcon from './nav/MenuIcon';
 import Navbar from './nav/Navbar';
@@ -14,12 +15,12 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   const { isSideBarOpen } = useMenu();
   return (
-    <div className="flex flex-col min-h-screen w-full bg-secondary-50 dark:bg-secondary-900 font-mono">
-      <div className="flex ">
+    <div className="flex flex-col min-h-screen w-full bg-secondary-50 dark:bg-secondary-900 font-mono text-secondary-900 dark:text-secondary-50">
+      <div className="flex">
         <MenuIcon />
         <Header />
       </div>
-      <div className="mb-auto w-full flex">
+      <div className="mb-auto w-full flex flex-1">
         <span className="hidden sm:block">
           <Navbar />
         </span>
@@ -32,7 +33,15 @@ const Layout = ({ children }: LayoutProps) => {
           <NavbarModal />
         </div>
 
-        <div className="p-2 w-full overflow-auto">{children}</div>
+        <div
+          className="p-2 w-full overflow-auto"
+          style={{
+            backgroundImage: 'url(/bg-copy-2.png)',
+            backgroundRepeat: 'repeat',
+          }}
+        >
+          {children}
+        </div>
       </div>
       <Footer />
     </div>
