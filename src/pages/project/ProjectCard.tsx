@@ -9,12 +9,12 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ name, tags }: ProjectCardProps) => {
   return (
-    <div className="rounded-xl max-w-sm bg-blue-200 p-2">
+    <div className="rounded-xl max-w-80 bg-blue-200 p-2">
       <div className="rounded-md">
         {/* Thumb nail */} <div className="h-6 bg-red-200"></div>
       </div>
       <div className="text-center">{name}</div>
-      <div className="grid gap-2 justify-center grid-cols-[repeat(auto_fill,_1fr)]">
+      <div className="flex flex-wrap justify-center gap-2 w-80">
         {tags.map((tag) => (
           <Tag name={tag} key={'tag-' + tag} />
         ))}
