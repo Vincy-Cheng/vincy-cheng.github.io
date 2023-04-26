@@ -1,34 +1,38 @@
-import clsx from 'clsx';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'tabler-icons-react';
 type ScrollRowProps = {
   children: ReactElement;
 };
 
 const ScrollRow = ({ children }: ScrollRowProps) => {
-  const [translateX, setTranslateX] = useState<number>(0);
+  const ref = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="flex items-center">
-      {translateX}
+    <div className="flex items-center gap-2">
+      {/* {translateX} */}
       <ChevronLeft
-        className="w-10 cursor-pointer"
+        className="w-20 cursor-pointer"
         onClick={() => {
-          if (translateX < 0) {
-            setTranslateX((prev) => prev + 100);
+          if (ref.current) {
+            ref.current.scrollLeft -= 200;
           }
         }}
       />
-      <div className={clsx('overflow-x-hidden py-2')}>
-        <div
-          className="flex gap-2 duration-300"
-          style={{ translate: `${translateX}px` }}
-        >
-          {children}
-        </div>
+
+      <div
+        className="flex gap-2 overflow-auto duration-300 scrollbar-hide scroll-smooth"
+        ref={ref}
+      >
+        {children}
       </div>
+
       <ChevronRight
-        className="w-10 cursor-pointer"
-        onClick={() => setTranslateX((prev) => prev - 100)}
+        className="w-20 cursor-pointer"
+        onClick={() => {
+          if (ref.current) {
+            ref.current.scrollLeft += 200;
+          }
+        }}
       />
     </div>
   );

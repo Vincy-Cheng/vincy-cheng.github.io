@@ -1,11 +1,11 @@
 import React from 'react';
 import Tag from '../../components/Tag';
 
-type ProjectCardProps = {
+export interface ProjectCardProps {
   name: string;
   tags: string[];
   thumbNailPath?: string;
-};
+}
 
 const ProjectCard = ({ name, tags }: ProjectCardProps) => {
   return (
