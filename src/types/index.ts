@@ -1,5 +1,5 @@
 export interface ISideBarMenuItem {
-  path: String;
+  path: string;
   icon: JSX.Element;
-  title: String;
+  title: string;
 }
