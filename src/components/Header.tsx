@@ -10,7 +10,18 @@ const Header = ({}: HeaderProps) => {
 
   const header = useMemo<String>(() => {
     const location = menuItems.find((item) => item.path === asPath);
-    if (location) return location.title;
+
+    if (location) {
+      return location.title;
+    } else {
+      const subPath = menuItems.find(
+        (item) => item.path !== '/' && asPath.startsWith(item.path),
+      );
+      if (subPath) {
+        return subPath.title;
+      }
+    }
+
     return '';
   }, [asPath]);
   return (
