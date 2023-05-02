@@ -10,7 +10,7 @@ export interface ProjectCardProps {
 const ProjectCard = ({ name, tags }: ProjectCardProps) => {
   return (
     <Link
-      className="rounded-xl min-w-[320px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-110 duration-300"
+      className="rounded-xl min-w-[320px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-110 duration-300 space-y-2"
       href={`/project/${encodeURI(name)}`}
     >
       <div className="rounded-md bg-red-200">
