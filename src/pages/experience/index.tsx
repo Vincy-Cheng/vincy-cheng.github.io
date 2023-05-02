@@ -15,28 +15,32 @@ const Experience = (props: Props) => {
           {Object.values(SkillType).map((value) => (
             <Accordion header={value} key={'experience-accordion-' + value}>
               <table className="min-w-[600px] w-full table-fixed overflow-auto relative border-separate text-primary-800 dark:text-primary-100">
-                <tr className="text-left">
-                  <th className="grow">{value}</th>
-                  <th className="w-[20%]">Level</th>
-                  <th className="w-[20%]">Start date</th>
-                  <th className="w-[20%] text">Around year</th>
-                </tr>
-                {skills
-                  .filter((skill) => skill.type === value)
-                  .map((skill) => (
-                    <tr key={skill.name}>
-                      <td>{skill.name}</td>
-                      <td>{skill.level}</td>
-                      <td>
-                        {DateTime.fromJSDate(skill.startTime).toFormat(
-                          'yyyy-LL-dd',
-                        )}
-                      </td>
-                      <td>
-                        {skill.around.type} {skill.around.year}
-                      </td>
-                    </tr>
-                  ))}
+                <thead>
+                  <tr className="text-left">
+                    <th className="grow">{value}</th>
+                    <th className="w-[20%]">Level</th>
+                    <th className="w-[20%]">Start date</th>
+                    <th className="w-[20%] text">Around year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {skills
+                    .filter((skill) => skill.type === value)
+                    .map((skill) => (
+                      <tr key={skill.name}>
+                        <td>{skill.name}</td>
+                        <td>{skill.level}</td>
+                        <td>
+                          {DateTime.fromJSDate(skill.startTime).toFormat(
+                            'yyyy-LL-dd',
+                          )}
+                        </td>
+                        <td>
+                          {skill.around.type} {skill.around.year}
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
               </table>
             </Accordion>
           ))}
@@ -55,7 +59,7 @@ const Experience = (props: Props) => {
                   <p>{work.position}</p>
                   <p>
                     {DateTime.fromJSDate(work.startDate).toFormat('yyyy-LL-dd')}
-                    -
+                    {' - '}
                     {Math.floor(
                       Math.abs(
                         DateTime.fromJSDate(work.endDate)
