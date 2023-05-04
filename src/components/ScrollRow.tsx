@@ -19,7 +19,7 @@ const ScrollRow = ({ children }: ScrollRowProps) => {
       />
 
       <div
-        className="flex gap-6 overflow-auto duration-300 scrollbar-hide scroll-smooth p-4"
+        className="flex gap-6 overflow-auto duration-300 scrollbar-hide scroll-smooth py-4 px-6"
         ref={ref}
       >
         {children}
