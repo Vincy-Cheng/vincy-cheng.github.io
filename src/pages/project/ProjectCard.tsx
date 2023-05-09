@@ -13,10 +13,7 @@ const ProjectCard = ({ name, tags }: ProjectCardProps) => {
       className="rounded-xl min-w-[300px] max-w-[500px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-105 duration-300 space-y-2"
       href={`/project/${encodeURI(name)}`}
     >
-      <div className="rounded-md bg-red-200">
-        {/* Thumb nail */} <div className="h-6"></div>
-      </div>
-      <div className="text-center text-primary-300">{name}</div>
+      <div className="text-center text-primary-300 text-lg">{name}</div>
       <div className="flex flex-wrap justify-center gap-2">
         {tags.sort().map((tag) => (
           <Tag name={tag} key={name + '-tag-' + tag} />

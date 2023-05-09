@@ -6,7 +6,7 @@ type ScrollRowProps = {
 
 const ScrollRow = ({ children }: ScrollRowProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  console.log(children.key);
+
   return (
     <div className="flex flex-row items-center gap-2">
       <ChevronLeft

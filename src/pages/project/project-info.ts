@@ -1,7 +1,7 @@
 import { ProjectCardProps } from "./ProjectCard";
 
 
-interface IProjectInfo extends ProjectCardProps {
+export interface IProjectInfo extends ProjectCardProps {
 	thumbNailPath?: string;
 	description: string;
 	link: string;
@@ -47,7 +47,7 @@ const otherProjects: IProjectInfo[] = [{
 	screenshot: []
 }, {
 	name: 'Socket Programming - Testing TCP and UDP',
-	tags: ['socket-programming', 'Python', 'TCP', 'UDP'],
+	tags: ['socket-programming', 'python', 'tcp', 'udp'],
 	description: 'This project is done when I was studying at CUHK in IERG3310. It is used for testing TCP and UDP communication between Robot.py and student.py by using Python.',
 	link: 'https://github.com/Vincy-Cheng/IERG3310',
 	screenshot: []
