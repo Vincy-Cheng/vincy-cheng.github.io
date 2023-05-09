@@ -10,7 +10,7 @@ export interface ProjectCardProps {
 const ProjectCard = ({ name, tags }: ProjectCardProps) => {
   return (
     <Link
-      className="rounded-xl max-w-[500px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-105 duration-300 space-y-2"
+      className="rounded-xl min-w-[300px] max-w-[500px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-105 duration-300 space-y-2"
       href={`/project/${encodeURI(name)}`}
     >
       <div className="rounded-md bg-red-200">
@@ -18,7 +18,7 @@ const ProjectCard = ({ name, tags }: ProjectCardProps) => {
       </div>
       <div className="text-center text-primary-300">{name}</div>
       <div className="flex flex-wrap justify-center gap-2">
-        {tags.map((tag) => (
+        {tags.sort().map((tag) => (
           <Tag name={tag} key={name + '-tag-' + tag} />
         ))}
       </div>

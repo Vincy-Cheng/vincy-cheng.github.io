@@ -8,7 +8,7 @@ const ScrollRow = ({ children }: ScrollRowProps) => {
   const ref = useRef<HTMLDivElement>(null);
   console.log(children.key);
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-row items-center gap-2">
       <ChevronLeft
         className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700"
         onClick={() => {
@@ -19,7 +19,7 @@ const ScrollRow = ({ children }: ScrollRowProps) => {
       />
 
       <div
-        className="flex gap-6 overflow-auto duration-300 scrollbar-hide scroll-smooth py-4 px-6"
+        className="w-full flex gap-6 overflow-x-scroll duration-300 scrollbar-hide scroll-smooth py-4 px-6"
         ref={ref}
       >
         {children}

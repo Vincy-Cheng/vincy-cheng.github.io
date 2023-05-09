@@ -2,6 +2,7 @@ import React from 'react';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { appProjects, otherProjects, webProjects } from './project-info';
+import { ChevronLeft } from 'tabler-icons-react';
 
 export interface ProjectInfoProps {}
 
@@ -14,16 +15,21 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
     appProjects.find((appProject) => appProject.name === name) ??
     otherProjects.find((otherProject) => otherProject.name === name);
 
-  if (!info) {
-    return <Error statusCode={404} />;
-  }
   return (
     <div className="space-y-2">
-      <div className="text-lg">{info?.name}</div>
-      <div className="text-primary-500 dark:text-primary-400 pb-5">
+      <div className="flex items-center space-x-5">
+        <ChevronLeft
+          className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700"
+          onClick={() => {
+            router.back();
+          }}
+        />
+        <p className="text-lg">{info?.name}</p>
+      </div>
+      <div className="text-primary-500 dark:text-primary-400 pb-5 break-words">
         #{info?.tags.join('#')}
       </div>
-      <div className="bg-secondary-100 dark:bg-secondary-800 p-2 rounded-xl border border-secondary-200 dark:border-secondary-700">
+      <div className="bg-secondary-50 dark:bg-secondary-800 p-2 rounded-xl border border-secondary-200 dark:border-secondary-700">
         {info?.description}
       </div>
 
@@ -33,6 +39,11 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
         <a href={info?.link} className="underline text-sm">
           {info?.link}
         </a>
+      </div>
+      <div>
+        {info?.screenshot.map((image) => (
+          <img src={image} key={image} />
+        ))}
       </div>
     </div>
   );
