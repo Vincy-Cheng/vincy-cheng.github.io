@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
 import { appProjects, otherProjects, webProjects } from './project-info';
@@ -42,7 +43,7 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
       </div>
       <div>
         {info?.screenshot.map((image) => (
-          <img src={image} key={image} />
+          <Image src={image} key={image} alt={''} />
         ))}
       </div>
     </div>
