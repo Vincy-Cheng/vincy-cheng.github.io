@@ -15,7 +15,7 @@ const ProjectCard = ({ name, tags }: ProjectCardProps) => {
     >
       <div className="text-center text-primary-300 text-lg">{name}</div>
       <div className="flex flex-wrap justify-center gap-2">
-        {tags.sort().map((tag) => (
+        {tags?.sort().map((tag) => (
           <Tag name={tag} key={name + '-tag-' + tag} />
         ))}
       </div>
