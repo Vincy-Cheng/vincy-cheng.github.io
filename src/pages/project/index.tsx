@@ -7,7 +7,7 @@ import {
   otherProjects,
   webProjects,
 } from './project-info';
-import { Search } from 'tabler-icons-react';
+import { Search, X } from 'tabler-icons-react';
 
 type Props = {};
 
@@ -28,24 +28,39 @@ const Project = (props: Props) => {
       originalProjects,
     );
 
+  const [searchInput, setSearchInput] = useState<string>('');
+
+  useEffect(() => {
+    setProjects(
+      originalProjects.map((project) => ({
+        type: project.type,
+        content: project.content.filter((p) =>
+          p.tags.some((tag) => tag.includes(searchInput)),
+        ),
+      })),
+    );
+  }, [searchInput]);
+
   return (
     <div className="w-full">
-      <div className="absolute right-0 mr-2 p-2 flex items-center space-x-2 shadow rounded-full w-fit bg-primary-600 dark:shadow-primary-500">
+      <div className="flex items-center sm:absolute right-0 mr-2 p-2 shadow rounded-full w-fit bg-secondary-400 dark:bg-secondary-600 dark:shadow-primary-500">
         {/* Search bar */}
-        <Search className="text-secondary-50" />
-        <input
-          type="text"
-          className="outline-none bg-transparent text-secondary-100 placeholder:text-secondary-400"
-          placeholder="Searching tag"
-          onChange={(e) => {
-            setProjects(
-              originalProjects.map((project) => ({
-                type: project.type,
-                content: project.content.filter((p) =>
-                  p.tags.some((tag) => tag.includes(e.target.value)),
-                ),
-              })),
-            );
+        <div className="flex items-center space-x-2 grow">
+          <Search className="text-secondary-50" />
+          <input
+            type="text"
+            className="outline-none bg-transparent text-secondary-100 placeholder:text-secondary-300 placeholder:text-sm dark:placeholder:text-secondary-400"
+            placeholder="Searching tag"
+            value={searchInput}
+            onChange={(e) => {
+              setSearchInput(e.target.value);
+            }}
+          />
+        </div>
+        <X
+          className="p-1 text-secondary-100 cursor-pointer rounded-full hover:bg-secondary-300 dark:hover:bg-secondary-700"
+          onClick={() => {
+            setSearchInput('');
           }}
         />
       </div>
@@ -74,6 +89,9 @@ const Project = (props: Props) => {
             )}
           </div>
         ))}
+
+        {projects.every((project) => project.content.length === 0) &&
+          'Sorry no result found :('}
       </div>
     </div>
   );
