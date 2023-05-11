@@ -27,7 +27,7 @@ const Contact = (props: Props) => {
       </Link>
       <div className="flex items-center space-x-1 dark:text-secondary-50 text-secondary-900">
         <Mail />
-        <span>Email</span>
+        <span>Email - vincy.c.work23@gmail.com</span>
       </div>
     </div>
   );
