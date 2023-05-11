@@ -2,7 +2,11 @@ import React from 'react';
 import Image from 'next/image';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
-import { appProjects, otherProjects, webProjects } from './project-info';
+import {
+  appProjects,
+  otherProjects,
+  webProjects,
+} from '../../hard-code.data.ts/project-info';
 import { ChevronLeft } from 'tabler-icons-react';
 
 export interface ProjectInfoProps {}

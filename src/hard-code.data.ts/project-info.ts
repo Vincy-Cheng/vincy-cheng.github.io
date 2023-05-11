@@ -1,4 +1,4 @@
-import { ProjectCardProps } from "./ProjectCard";
+import { ProjectCardProps } from "../pages/project/ProjectCard";
 
 
 export interface IProjectInfo extends ProjectCardProps {

@@ -6,7 +6,7 @@ import {
   appProjects,
   otherProjects,
   webProjects,
-} from './project-info';
+} from '../../hard-code.data.ts/project-info';
 import { Search, X } from 'tabler-icons-react';
 
 type Props = {};

@@ -1,7 +1,11 @@
 import React from 'react';
 import { DateTime } from 'luxon';
 import Accordion from '../../components/Accordion';
-import { SkillType, skills, works } from './hard-code-data';
+import {
+  SkillType,
+  skills,
+  works,
+} from '../../hard-code.data.ts/experience.data';
 
 type Props = {};
 const Experience = (props: Props) => {
