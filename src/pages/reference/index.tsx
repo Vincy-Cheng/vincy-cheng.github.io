@@ -11,10 +11,6 @@ const references: IReference[] = [
     text: 'Idea to make the scroll row',
     link: 'https://stackoverflow.com/questions/56392199/make-a-button-to-scroll-horizontally-in-div',
   },
-  {
-    text: 'Idea to make the scroll row',
-    link: 'https://stackoverflow.com/questions/56392199/make-a-button-to-scroll-horizontally-in-div',
-  },
 ];
 
 const Reference = (props: Props) => {
