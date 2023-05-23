@@ -1,14 +1,4 @@
-import { ProjectCardProps } from "../pages/project/ProjectCard";
-
-
-export interface IProjectInfo extends ProjectCardProps {
-	thumbNailPath?: string;
-	description: string;
-	link: string;
-	screenshot: string[];
-}
-
-
+import { IProjectInfo } from "../types";
 
 const webProjects: IProjectInfo[] = [{
 	name: 'Weathering with Me',

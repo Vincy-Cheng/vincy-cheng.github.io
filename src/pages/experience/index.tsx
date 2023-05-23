@@ -1,11 +1,8 @@
 import React from 'react';
 import { DateTime } from 'luxon';
 import Accordion from '../../components/Accordion';
-import {
-  SkillType,
-  skills,
-  works,
-} from '../../hard-code.data.ts/experience.data';
+import { skills, works } from '../../hard-code.data.ts/experience.data';
+import { ESkillType } from '../../types';
 
 type Props = {};
 const Experience = (props: Props) => {
@@ -16,7 +13,7 @@ const Experience = (props: Props) => {
           <p className="text-lg border-b border-primary-500 font-bold">
             Skill experiences
           </p>
-          {Object.values(SkillType).map((value) => (
+          {Object.values(ESkillType).map((value) => (
             <Accordion header={value} key={'experience-accordion-' + value}>
               <table className="min-w-[600px] w-full table-fixed overflow-auto relative border-separate text-primary-800 dark:text-primary-100">
                 <thead>

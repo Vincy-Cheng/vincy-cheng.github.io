@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import ScrollRow from '../../components/ScrollRow';
 import {
-  IProjectInfo,
   appProjects,
   otherProjects,
   webProjects,
 } from '../../hard-code.data.ts/project-info';
 import { Search, X } from 'tabler-icons-react';
+import { IProjectInfo } from '../../types';
 
 type Props = {};
 

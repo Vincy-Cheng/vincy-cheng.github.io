@@ -1,5 +1,4 @@
 import { ReactElement } from 'react';
-import Image from 'next/image';
 import Header from './Header';
 import MenuIcon from './nav/MenuIcon';
 import Navbar from './nav/Navbar';
