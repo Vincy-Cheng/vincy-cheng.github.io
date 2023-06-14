@@ -45,11 +45,12 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
           {info?.link}
         </a>
       </div>
-      <div>
-        {info?.screenshot.map((image) => (
-          <Image src={image} key={image} alt={''} />
-        ))}
-      </div>
+
+      {info?.screenshot.map((image) => (
+        <div key={image} className="w-full relative pt-[100%] top-0">
+          <Image src={image} alt={'/'} fill style={{ objectFit: 'contain' }} />
+        </div>
+      ))}
     </div>
   );
 };
