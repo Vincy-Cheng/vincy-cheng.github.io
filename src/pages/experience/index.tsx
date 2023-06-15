@@ -55,10 +55,10 @@ const Experience = (props: Props) => {
               header={work.company}
               key={'work-experience-accordion-' + work.company}
             >
-              <div className="overflow-auto space-y-2 ">
-                <div className="flex justify-between">
-                  <p>{work.position}</p>
-                  <p>
+              <div className="overflow-auto space-y-2">
+                <div className="sm:flex sm:justify-between pt-2">
+                  <p className="">{work.position}</p>
+                  <p className="sm:dark:text-secondary-50 sm:text-secondary-900 text-secondary-500">
                     {DateTime.fromJSDate(work.startDate).toFormat('yyyy-LL-dd')}
                     {' - '}
                     {Math.floor(
@@ -80,6 +80,13 @@ const Experience = (props: Props) => {
                     <li key={'description' + index}>{value}</li>
                   ))}
                 </ul>
+                <div>
+                  {work.tags.length > 0 && (
+                    <p className="text-[#2461A6] font-thin">
+                      #{work.tags.join('#')}
+                    </p>
+                  )}
+                </div>
               </div>
             </Accordion>
           ))}

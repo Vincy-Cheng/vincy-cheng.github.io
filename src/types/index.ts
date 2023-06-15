@@ -44,6 +44,7 @@ interface IWorkExperienceSet {
   company: string;
   startDate: Date;
   endDate: Date;
+  tags: string[];
 }
 type Enumerate<
   N extends number,
