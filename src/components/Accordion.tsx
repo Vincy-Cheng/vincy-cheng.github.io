@@ -26,8 +26,8 @@ const Accordion = ({ header, children }: AccordionProps) => {
 
       <div
         className={clsx(
-          'overflow-x-auto overflow-y-hidden transition-[max-height] duration-500 ease-in-out',
-          open ? 'max-h-screen' : 'max-h-0',
+          'overflow-x-auto overflow-y-hidden transition-[max-height] transition-all duration-500 ease-in-out ',
+          open ? 'max-h-screen border-t mt-2' : 'max-h-0',
         )}
       >
         {children}
