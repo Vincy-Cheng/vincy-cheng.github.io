@@ -67,7 +67,12 @@ const otherProjects: IProjectInfo[] = [
     description:
       'This game is developed when I was studying at CUHK in IERG3080.',
     link: 'https://github.com/Vincy-Cheng/IERG-3080-Project-Part-1-Pirate-Barrel',
-    screenshot: [],
+    screenshot: [
+      'https://user-images.githubusercontent.com/60846680/246719428-b4b7e330-6d65-4e9d-a7fd-cde378bfe4b7.png',
+      'https://user-images.githubusercontent.com/60846680/246719863-fee4f550-7dd1-4961-95c5-c79e89508c6e.png',
+      'https://user-images.githubusercontent.com/60846680/246719953-9d1b8695-18a0-4d90-a50f-ca4a8c23bf15.png',
+      'https://user-images.githubusercontent.com/60846680/246719967-5eae598e-b594-4274-b400-826959132a54.png',
+    ],
   },
   {
     name: 'Socket Programming - Testing TCP and UDP',
