@@ -1,5 +1,5 @@
 import React from 'react';
-import Tag from '../../components/Tag';
+import Tag from './Tag';
 import Link from 'next/link';
 
 export interface ProjectCardProps {
@@ -13,7 +13,7 @@ const ProjectCard = ({ name, tags }: ProjectCardProps) => {
       className="rounded-xl min-w-[300px] max-w-[500px] p-2 dark:bg-primary-800 bg-primary-100 hover:scale-105 duration-300 space-y-2"
       href={`/project/${encodeURI(name)}`}
     >
-      <div className="text-center dark:text-primary-300 text-primary-400 text-lg">
+      <div className="text-center dark:text-primary-300 text-primary-400 text-lg select-none">
         {name}
       </div>
       <div className="flex flex-wrap justify-center gap-2">

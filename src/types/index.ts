@@ -1,4 +1,4 @@
-import { ProjectCardProps } from '../pages/project/ProjectCard';
+import { ProjectCardProps } from '../components/ProjectCard';
 
 interface ISideBarMenuItem {
   path: string;

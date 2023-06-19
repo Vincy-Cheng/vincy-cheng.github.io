@@ -20,11 +20,15 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
     appProjects.find((appProject) => appProject.name === name) ??
     otherProjects.find((otherProject) => otherProject.name === name);
 
+  if (!info) {
+    return <Error statusCode={404} title="page Not Found" />;
+  }
+
   return (
     <div className="space-y-2">
-      <div className="flex items-center space-x-5">
+      <div className="flex items-center space-x-5 ">
         <ChevronLeft
-          className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700"
+          className="cursor-pointer rounded-full hover:bg-secondary-200 dark:hover:bg-secondary-700 "
           onClick={() => {
             router.back();
           }}
