@@ -11,13 +11,17 @@ const references: IReference[] = [
     text: 'Idea to make the scroll row',
     link: 'https://stackoverflow.com/questions/56392199/make-a-button-to-scroll-horizontally-in-div',
   },
+  {
+    text: 'Way to restrict number to a certain range (by creating Range interface)',
+    link: 'https://stackoverflow.com/questions/39494689/is-it-possible-to-restrict-number-to-a-certain-range/70307091#70307091',
+  },
 ];
 
 const Reference = (props: Props) => {
   return (
-    <div>
+    <ol className="list-decimal list-inside">
       {references.map((reference) => (
-        <div key={reference.link}>
+        <li key={reference.link}>
           <a
             target="_blank"
             href={reference.link}
@@ -25,9 +29,9 @@ const Reference = (props: Props) => {
           >
             {reference.text}
           </a>
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 };
 

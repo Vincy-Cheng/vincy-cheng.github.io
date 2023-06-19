@@ -44,12 +44,12 @@ export default function Home() {
 
   return (
     <div>
-      <div className="text-4xl pb-5 wavy">
+      <div className="text-4xl py-5 wavy">
         {/* <p className='tracking-wide uppercase font-extrabold bg-gradient-to-r from-blue-400  to-primary-400 inline-block text-transparent bg-clip-text'>{title}</p> */}
         {gradientText().map((stop, index) => (
           <p
             key={index}
-            className="inline-block uppercase"
+            className="inline-block uppercase tracking-widest"
             style={{
               ['--i' as any]: index + 1,
               ['--r1' as any]: stop.startColor.red,

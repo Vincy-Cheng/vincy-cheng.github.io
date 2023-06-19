@@ -20,7 +20,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Header />
       </div>
       <div className="mb-auto w-full flex flex-1">
-        <span className="hidden sm:block">
+        <span className="hidden sm:block dashWide">
           <Navbar />
         </span>
         <div
