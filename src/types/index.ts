@@ -67,6 +67,18 @@ interface IRGB {
   blue: TColorBlue;
 }
 
+enum EAudioType {
+  mp3 = 'mp3',
+  m4a = 'm4a',
+}
+
+enum EAudioBitRate {
+  HIGHEST = '320',
+  MEDIUM = '256',
+  MEDIUM_LOW = '192',
+  LOWEST = '128',
+}
+
 export type {
   IProjectInfo,
   ISideBarMenuItem,
@@ -78,4 +90,4 @@ export type {
   IRGB,
 };
 
-export { ELevel, ESkillType };
+export { ELevel, ESkillType, EAudioType, EAudioBitRate };
