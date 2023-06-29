@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../../components/ProjectCard';
 import ScrollRow from '../../components/ScrollRow';
 import {
   appProjects,
@@ -43,13 +43,13 @@ const Project = (props: Props) => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center sm:absolute right-0 mr-2 p-2 shadow rounded-full w-fit bg-secondary-400 dark:bg-secondary-600 dark:shadow-primary-500">
+      <div className="flex items-center sm:absolute right-0 mr-2 p-2 shadow rounded-full w-fit bg-secondary-300 dark:bg-secondary-600 dark:shadow-primary-500">
         {/* Search bar */}
         <div className="flex items-center space-x-2 grow">
           <Search className="text-secondary-50" />
           <input
             type="text"
-            className="outline-none bg-transparent text-secondary-100 placeholder:text-secondary-300 placeholder:text-sm dark:placeholder:text-secondary-400"
+            className="outline-none bg-transparent text-secondary-100 placeholder:text-secondary-200 placeholder:text-sm dark:placeholder:text-secondary-400"
             placeholder="Searching tag"
             value={searchInput}
             onChange={(e) => {

@@ -15,6 +15,10 @@ const references: IReference[] = [
     text: 'Way to restrict number to a certain range (by creating Range interface)',
     link: 'https://stackoverflow.com/questions/39494689/is-it-possible-to-restrict-number-to-a-certain-range/70307091#70307091',
   },
+  {
+    text: 'Loading spinner',
+    link: 'https://tailwind-elements.com/docs/standard/components/spinners/',
+  },
 ];
 
 const Reference = (props: Props) => {

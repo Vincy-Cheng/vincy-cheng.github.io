@@ -10,7 +10,7 @@ const ScrollRow = ({ children }: ScrollRowProps) => {
   return (
     <div className="flex flex-row items-center gap-2">
       <ChevronLeft
-        className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700"
+        className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700 active:bg-secondary-300 dark:active:bg-secondary-600"
         onClick={() => {
           if (ref.current) {
             ref.current.scrollLeft -= 200;
@@ -26,7 +26,7 @@ const ScrollRow = ({ children }: ScrollRowProps) => {
       </div>
 
       <ChevronRight
-        className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700"
+        className="cursor-pointer rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-700 active:bg-secondary-300 dark:active:bg-secondary-600"
         onClick={() => {
           if (ref.current) {
             ref.current.scrollLeft += 200;
