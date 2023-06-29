@@ -1,13 +1,15 @@
 import clsx from 'clsx';
 import React, { useRef, useState } from 'react';
 import { ChevronDown, Search } from 'tabler-icons-react';
-import useOutsideAlerter from '../hooks/useOutsideAlerter';
+import { useOutsideAlerter } from '../hooks';
 
 type CustomSelectorProps = {
   title: string;
   options: string[];
   placeholder?: string;
   filter?: boolean;
+  value: any;
+  setValue: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const CustomSelector = ({
@@ -15,8 +17,9 @@ const CustomSelector = ({
   options,
   filter,
   placeholder,
+  value,
+  setValue,
 }: CustomSelectorProps) => {
-  const [value, setValue] = useState<string>('');
   const [inputValue, setInputValue] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
   const selectRef = useRef<HTMLUListElement>(null);
