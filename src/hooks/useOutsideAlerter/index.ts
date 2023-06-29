@@ -23,4 +23,4 @@ function useOutsideAlerter(callback: any) {
   return ref;
 }
 
-export default useOutsideAlerter;
+export { useOutsideAlerter };

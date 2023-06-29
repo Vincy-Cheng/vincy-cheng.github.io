@@ -76,4 +76,4 @@ function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
   };
 }
 
-export default useDarkMode;
+export { useDarkMode };
