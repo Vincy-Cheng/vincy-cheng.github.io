@@ -35,9 +35,6 @@ export default async function handler(
         errorMessage: 'This is not available. Please make the link is correct.',
       });
     });
-    // .on('progress', (a, b, c) => {
-    //   console.log(a, b, c);
-    // });
 
     // Check the size of video (Not accept video that longer than 10 mins)
     const basicInfo = await ytdl.getInfo(url).then((response) => {
@@ -48,8 +45,7 @@ export default async function handler(
       }
       return response;
     });
-    // 3403821
-    // 17941486
+
     const title = basicInfo.player_response.videoDetails.title;
     console.log(basicInfo.formats[0]);
 
@@ -79,9 +75,6 @@ export default async function handler(
           errorMessage: JSON.stringify(err),
         });
       });
-    // .on('progress', (progress) => {
-    //   console.log(progress);
-    // });
 
     // Directly pipe the stream if the type is MP3
     if (req.body.format === 'mp3') {
