@@ -8,6 +8,7 @@ import {
   webProjects,
 } from '../../hard-code.data.ts/project-info';
 import { ChevronLeft } from 'tabler-icons-react';
+import BackIconButton from '../../components/BackIconButton';
 
 export interface ProjectInfoProps {}
 
@@ -27,12 +28,7 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
   return (
     <div className="space-y-2">
       <div className="flex items-center space-x-5 ">
-        <ChevronLeft
-          className="cursor-pointer rounded-full hover:bg-secondary-200 dark:hover:bg-secondary-700 "
-          onClick={() => {
-            router.back();
-          }}
-        />
+        <BackIconButton router={router} />
         <p className="text-lg">{info?.name}</p>
       </div>
       <div className="text-primary-500 dark:text-primary-400 pb-5 break-words">
