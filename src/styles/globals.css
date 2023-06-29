@@ -3,41 +3,57 @@
 @tailwind utilities;
 
 .scrollbar-hide::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-	-ms-overflow-style: none;  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .wavy {
-	position: relative;
-	/* background-image: linear-gradient(to right,red, yellow); */
-	
+  position: relative;
 }
 
 .wavy p {
-	display: inline-block;
-	animation: animate 2s ease-in-out infinite;
-	background: linear-gradient(to right,rgb(var(--r1),var(--g1),var(--b1)),rgb(var(--r2),var(--g2),var(--b2)));
-	-webkit-background-clip: text;
+  display: inline-block;
+  animation: animate 2s ease-in-out infinite;
+  background: linear-gradient(
+    to right,
+    rgb(var(--r1), var(--g1), var(--b1)),
+    rgb(var(--r2), var(--g2), var(--b2))
+  );
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-	animation-delay: calc(0.1s * var(--i));
+  animation-delay: calc(0.1s * var(--i));
 }
 
 @keyframes animate {
-	0% {
-			transform: translateY(0px);
-	}
+  0% {
+    transform: translateY(0px);
+  }
 
-	20% {
-			transform: translateY(-20px);
-	}
+  20% {
+    transform: translateY(-20px);
+  }
 
-	40%,
-	100% {
-			transform: translateY(0px);
-	}
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 25% 0, 55% 100%, 0 100%);
+    background-color: #45454a;
+  }
 }
