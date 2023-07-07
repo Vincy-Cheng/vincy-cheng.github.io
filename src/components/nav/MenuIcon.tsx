@@ -5,7 +5,7 @@ import { useMenu } from '../../provider/MenuOpenProvider';
 type MenuIconProps = {};
 
 const MenuIcon = ({}: MenuIconProps) => {
-  const menu = useMenu();
+  const { toggle, isSideBarOpen } = useMenu();
   const sideBarOpenWidth = 'sm:w-[240px] ';
   const sideBarCloseWidth = 'sm:w-[52px]';
 
@@ -13,9 +13,9 @@ const MenuIcon = ({}: MenuIconProps) => {
     <div
       className={clsx(
         'dark:text-secondary-50 relative duration-300 p-2 pl-3',
-        menu.isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
+        isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
       )}
-      onClick={() => menu.toggle()}
+      onClick={() => toggle()}
     >
       <input type="checkbox" className="sr-only peer hidden" />
 

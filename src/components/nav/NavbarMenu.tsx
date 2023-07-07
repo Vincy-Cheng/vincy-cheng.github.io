@@ -1,7 +1,14 @@
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import React from 'react';
-import { LayoutGrid, Home2, Template, Tool, Mail } from 'tabler-icons-react';
+import {
+  LayoutGrid,
+  Home2,
+  Template,
+  Tool,
+  Mail,
+  Hammer,
+} from 'tabler-icons-react';
 import { useMenu } from '../../provider/MenuOpenProvider';
 import { ISideBarMenuItem } from '../../types';
 
@@ -24,6 +31,11 @@ export const menuItems: ISideBarMenuItem[] = [
     path: '/experience',
     icon: <Tool className={MenuItemClasses} />,
     title: 'Experience',
+  },
+  {
+    path: '/HTMLCSSTricks',
+    icon: <Hammer className={MenuItemClasses} />,
+    title: 'HTMLCSSTricks',
   },
   {
     path: '/reference',
