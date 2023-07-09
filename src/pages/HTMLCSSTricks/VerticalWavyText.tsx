@@ -131,17 +131,17 @@ const VerticalWavyText = (props: Props) => {
         className=" hover:underline text-primary-500 dark:text-primary-400"
         href="https://www.geeksforgeeks.org/how-to-make-a-vertical-wavy-text-line-using-html-and-css/"
       >
-        GeeksforGeeks's How to make a vertical wavy text line using HTML and CSS
-        ?
+        GeeksforGeeks&rsquo;s How to make a vertical wavy text line using HTML
+        and CSS ?
       </a>{' '}
-      But I add text gradient to it. If you don't need the wavy and only need
-      the text gradient, you can simply use{' '}
+      But I add text gradient to it. If you don&rsquo;t need the wavy and only
+      need the text gradient, you can simply use{' '}
       <a
         target="_blank"
         href="https://tailwindcss.com/docs/gradient-color-stops"
         className=" hover:underline text-primary-500 dark:text-primary-400"
       >
-        TailwindCss's Gradient Color Stops{' '}
+        TailwindCss&rsquo;s Gradient Color Stops{' '}
       </a>
     </div>
   );
