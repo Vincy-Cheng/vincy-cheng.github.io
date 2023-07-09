@@ -70,9 +70,10 @@ const PolygonSlideIn = (props: Props) => {
 
   const description = (
     <div>
-      That used clip path - polygon animation. The gray part will slide form
-      left to right. I made a CSS class - fadeIn. If you want to stop the
-      animation once it reached your expected shape, change the class fadeIn
+      That is clip path - polygon animation. The gray part will slide form left
+      to right. I made a CSS class - fadeIn for the animation. I also used
+      tailwindCss for the styling(color, display, etc...). If you want to stop
+      the animation once it reached your expected shape, change the class fadeIn
       <SyntaxHighlighter
         language="css"
         style={isDarkMode ? atomOneDark : atomOneLight}

@@ -5,7 +5,10 @@ interface Trick {
   name: string;
   route: string;
 }
-const tricks: Trick[] = [{ name: 'Polygon slide in', route: 'PolygonSlideIn' }];
+const tricks: Trick[] = [
+  { name: 'Polygon slide in', route: 'PolygonSlideIn' },
+  { name: 'Vertical wavy text', route: 'VerticalWavyText' },
+];
 
 type Props = {};
 
