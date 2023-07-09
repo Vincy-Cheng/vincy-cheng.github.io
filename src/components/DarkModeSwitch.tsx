@@ -1,5 +1,5 @@
 import { MoonStars, Sun } from 'tabler-icons-react';
-import { useDarkMode } from '../hooks';
+import { useDarkMode } from '../provider/DarkModeProvider';
 
 type Props = {};
 

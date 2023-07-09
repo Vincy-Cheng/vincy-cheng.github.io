@@ -1,18 +1,23 @@
-// Deprecated hook
-
-import { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 const COLOR_SCHEME_QUERY = '(prefers-color-scheme: dark)';
-
-interface UseDarkModeOutput {
+interface ProviderValue {
   isDarkMode: boolean;
   toggle: () => void;
   enable: () => void;
   disable: () => void;
 }
 
-function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+const DarkModeContext = React.createContext<any>({});
+
+export const useDarkMode = () => {
+  return useContext<ProviderValue>(DarkModeContext);
+};
+
+export const DarkModeProvider = ({ children }: any) => {
+  // TODO: Add your state / logic here
+
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
 
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
@@ -70,12 +75,16 @@ function useDarkMode(defaultValue?: boolean): UseDarkModeOutput {
     });
   };
 
-  return {
-    isDarkMode,
-    toggle: () => handleChange(),
-    enable: () => setIsDarkMode(true),
-    disable: () => setIsDarkMode(false),
-  };
-}
-
-// export { useDarkMode };
+  return (
+    <DarkModeContext.Provider
+      value={{
+        isDarkMode,
+        toggle: () => handleChange(),
+        enable: () => setIsDarkMode(true),
+        disable: () => setIsDarkMode(false),
+      }}
+    >
+      {children}
+    </DarkModeContext.Provider>
+  );
+};

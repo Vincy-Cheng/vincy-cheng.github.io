@@ -1,11 +1,4 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import React, { useContext, useState } from 'react';
 
 interface ProviderValue {
   isSideBarOpen: boolean;
