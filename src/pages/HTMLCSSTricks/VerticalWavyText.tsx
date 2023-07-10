@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { gradientText } from '../../common';
 import HTMLAndCSSSourceCode from '../../components/HTMLAndCSSSourceCode';
-import { useDarkMode } from '../../provider/DarkModeProvider';
 
 type Props = {};
 
@@ -100,7 +99,6 @@ const gradientText = (text: string[]) => {
 
 const VerticalWavyText = (props: Props) => {
   const router = useRouter();
-  const { isDarkMode } = useDarkMode();
   const example = (
     <div className="text-4xl py-5 wavy">
       {gradientText(Array.from('Wavy Text')).map((stop, index) => (
