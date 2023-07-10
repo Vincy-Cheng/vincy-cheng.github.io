@@ -33,9 +33,9 @@ export const menuItems: ISideBarMenuItem[] = [
     title: 'Experience',
   },
   {
-    path: '/HTMLCSSTricks',
+    path: '/html-css-tricks',
     icon: <Hammer className={MenuItemClasses} />,
-    title: 'HTMLCSSTricks',
+    title: 'HTML CSS Tricks',
   },
   {
     path: '/reference',

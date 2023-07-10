@@ -6,8 +6,8 @@ interface Trick {
   route: string;
 }
 const tricks: Trick[] = [
-  { name: 'Polygon slide in', route: 'PolygonSlideIn' },
-  { name: 'Vertical wavy text', route: 'VerticalWavyText' },
+  { name: 'Polygon slide in', route: 'polygon-slide-in' },
+  { name: 'Vertical wavy text', route: 'vertical-wavy-text' },
 ];
 
 type Props = {};
@@ -17,7 +17,7 @@ const HTMLCSSTricks = (props: Props) => {
     <ol className="list-decimal list-inside">
       {tricks.map((trick) => (
         <Link
-          href={`/HTMLCSSTricks/${trick.route}`}
+          href={`/html-css-tricks/${trick.route}`}
           key={trick.route}
           className=" hover:text-primary-500"
         >
