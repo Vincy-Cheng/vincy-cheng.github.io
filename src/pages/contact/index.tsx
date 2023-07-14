@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { BrandGithub, BrandLinkedin, Mail } from 'tabler-icons-react';
+import MenuIcon2 from '../../components/nav/OpenCloseIcon';
 
 type Props = {};
 
@@ -29,6 +30,8 @@ const Contact = (props: Props) => {
         <Mail />
         <span>Email - vincy.c.work23@gmail.com</span>
       </div>
+
+      {/* <MenuIcon2></MenuIcon2> */}
     </div>
   );
 };
