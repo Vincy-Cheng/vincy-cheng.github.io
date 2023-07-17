@@ -8,6 +8,7 @@ interface Trick {
 const tricks: Trick[] = [
   { name: 'Polygon slide in', route: 'polygon-slide-in' },
   { name: 'Vertical wavy text', route: 'vertical-wavy-text' },
+  { name: 'Open Close Menu Icon', route: 'open-close-menu-icon' },
 ];
 
 type Props = {};

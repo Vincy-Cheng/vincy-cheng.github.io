@@ -19,6 +19,10 @@ const references: IReference[] = [
     text: 'Loading spinner',
     link: 'https://tailwind-elements.com/docs/standard/components/spinners/',
   },
+  {
+    text: 'Open Close Menu Icon',
+    link: 'https://codepen.io/designcouch/pen/ExvwPY',
+  },
 ];
 
 const Reference = (props: Props) => {
