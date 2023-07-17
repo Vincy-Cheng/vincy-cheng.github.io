@@ -76,7 +76,7 @@ const OpenCloseMenuIcon = (props: Props) => {
           <label htmlFor="">Size: {size}</label>
           <input
             type="range"
-            min="20"
+            min={20}
             max={100}
             value={size}
             className="outline-none appearance-none rounded-full h-2 accent-primary-500 bg-no-repeat bg-gradient-to-r from-primary-300 to-primary-300"
