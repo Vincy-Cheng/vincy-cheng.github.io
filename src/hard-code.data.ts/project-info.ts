@@ -7,7 +7,9 @@ const webProjects: IProjectInfo[] = [
     description:
       'This is a team project (6 members) which involves frontend and backend when I was studying at CUHK in CSCI2720. I worked in the backend team. We built a web page that can show the realtime weather details of inserted location. Data is fetched from Weather API. User is required to create an account and login to that account to view the weather.',
     link: 'https://github.com/Vincy-Cheng/CSCI2720-Project',
-    screenshot: [],
+    screenshot: [
+      'https://user-images.githubusercontent.com/60846680/254144594-5b3f2c21-4d4b-4b6a-b643-0eada146470b.png',
+    ],
   },
   {
     name: 'Web shop',
@@ -46,9 +48,15 @@ const appProjects: IProjectInfo[] = [
       'sqlalchemy',
     ],
     description:
-      "This Flutter app is my final year project at CUHK. (Group project - 2 people) It is an app that can recognize pill's color,shape and size and reminder user to takes pills periodically. The image recognition is applying OpenCV to achieve the features. Me and my partner have built an web server(by using Flask) for storing the pills', user's and prescription's information. User use the app to fetch those data. Firebase is used for phone authentication. (🫣 Got A grade)",
-    link: 'https://github.com/Vincy-Cheng/IERG-3080-Project-Part-1-Pirate-Barrel',
-    screenshot: [],
+      "This Flutter app is my final year project at CUHK. (Group project - 2 members) It is an app that can recognize pill's color,shape and size and reminder user to takes pills periodically. The image recognition is applying OpenCV to achieve the features. Me and my partner have built a web server(by using Flask) to store the pills, users, and prescription information. The app fetches those data when user opens the app. Firebase is used for phone authentication. The web server is used ngrok service to direct the public link to my laptop's private network.",
+    link: 'https://github.com/Vincy-Cheng/IEFYP/tree/master',
+    screenshot: [
+      'https://user-images.githubusercontent.com/60846680/254141249-374e3ad8-4f5f-4ae0-8898-e5fbdd74e653.png',
+      'https://user-images.githubusercontent.com/60846680/254141281-d2c5ce4a-b48e-4d72-934d-f76cedc12ce4.png',
+      'https://user-images.githubusercontent.com/60846680/254141295-808d76ee-01e6-4dfb-81b7-6f4ec18e3095.png',
+      'https://user-images.githubusercontent.com/60846680/254141317-c89eb7ec-e62e-484a-a48c-4d5e9040cc8c.png',
+      'https://user-images.githubusercontent.com/60846680/254141346-c9eb4598-5997-4e56-9608-152c4ab789fe.jpg',
+    ],
   },
 ];
 

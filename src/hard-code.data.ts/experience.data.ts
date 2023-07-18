@@ -95,7 +95,7 @@ const skills: ISkillExperienceSet[] = [
     type: ESkillType.framework,
     level: ELevel.intermediate,
     startTime: new Date(2022, 6 - 1, 20),
-    around: { year: 1, type: '<' },
+    around: { year: 1, type: '~' },
   },
   {
     name: 'NextJS',
