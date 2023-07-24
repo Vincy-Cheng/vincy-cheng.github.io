@@ -1,28 +1,32 @@
 import { useRouter } from 'next/router';
-import React from 'react';
-import { gradientText } from '../../common';
+import React, { useState } from 'react';
+import { colorStringToRGB, gradientText } from '../../common';
 import HTMLAndCSSSourceCode from '../../components/HTMLAndCSSSourceCode';
 
 type Props = {};
 
-const htmlTag = `<div className="text-4xl py-5 wavy">
-{gradientText(Array.from('Wavy Text')).map((stop, index) => (
-	<p
-		key={index}
-		className="inline-block uppercase tracking-widest"
-		style={{
-			['--i' as any]: index + 1,
-			['--r1' as any]: stop.startColor.red,
-			['--g1' as any]: stop.startColor.blue,
-			['--b1' as any]: stop.startColor.green,
-			['--r2' as any]: stop.endColor.red,
-			['--g2' as any]: stop.endColor.blue,
-			['--b2' as any]: stop.endColor.green,
-		}}
-	>
-		{stop.char === ' ' ? <>&nbsp;</> : stop.char}
-	</p>
-))}
+const htmlTag = ` <div className="text-4xl py-5 wavy">
+  {gradientText(
+    Array.from('Wavy Text'),
+    colorStringToRGB(colors.startColor),
+    colorStringToRGB(colors.endColor),
+  ).map((stop, index) => (
+    <p
+      key={index}
+      className="inline-block uppercase tracking-widest"
+      style={{
+        ['--i' as any]: index + 1,
+        ['--r1' as any]: stop.startColor.red,
+        ['--g1' as any]: stop.startColor.green,
+        ['--b1' as any]: stop.startColor.blue,
+        ['--r2' as any]: stop.endColor.red,
+        ['--g2' as any]: stop.endColor.green,
+        ['--b2' as any]: stop.endColor.blue,
+      }}
+    >
+      {stop.char === ' ' ? <>&nbsp;</> : stop.char}
+    </p>
+  ))}
 </div>`;
 
 const cssScript = `.wavy {
@@ -57,7 +61,29 @@ const cssScript = `.wavy {
   }
 }`;
 
-const tsCode = `const colorCalculator = (
+const tsCode = `type Enumerate<
+  N extends number,
+  Acc extends number[] = [],
+> = Acc['length'] extends N
+  ? Acc[number]
+  : Enumerate<N, [...Acc, Acc['length']]>;
+
+type Range<F extends number, T extends number> = Exclude<
+  Enumerate<T>,
+  Enumerate<F>
+>;
+
+type TColorRed = Range<0, 256>;
+type TColorGreen = Range<0, 256>;
+type TColorBlue = Range<0, 256>;
+
+interface IRGB {
+  red: TColorRed;
+  green: TColorGreen;
+  blue: TColorBlue;
+}
+
+const colorCalculator = (
   color1: IRGB,
   color2: IRGB,
   percentage1: number,
@@ -76,48 +102,92 @@ const tsCode = `const colorCalculator = (
   };
 };
 
-const gradientText = (text: string[]) => {
+const gradientText = (text: string[], start: IRGB, end: IRGB) => {
   const steps = 1 / text.length;
+
   return text.map((char, index) => {
     const ratio1 = steps * (text.length - index);
     const ratio2 = steps * (text.length - index - 1);
-    const startColor = colorCalculator(
-      { red: 96, blue: 165, green: 250 },
-      { red: 101, blue: 159, green: 140 },
-      ratio1,
-      1 - ratio1,
-    );
-    const endColor = colorCalculator(
-      { red: 96, blue: 165, green: 250 },
-      { red: 101, blue: 159, green: 140 },
-      ratio2,
-      1 - ratio2,
-    );
+    const startColor = colorCalculator(start, end, ratio1, 1 - ratio1);
+    const endColor = colorCalculator(start, end, ratio2, 1 - ratio2);
+
     return { startColor, endColor, char };
   });
+};
+
+const colorStringToRGB = (color: string): IRGB => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+
+  return {
+    red: parseInt(result ? result[1] : '0', 16),
+    green: parseInt(result ? result[2] : '0', 16),
+    blue: parseInt(result ? result[3] : '0', 16),
+  } as IRGB;
 };`;
 
 const VerticalWavyText = (props: Props) => {
+  const [colors, setColors] = useState<{
+    startColor: string;
+    endColor: string;
+  }>({ startColor: '#6a99eb', endColor: '#2fcc63' });
   const router = useRouter();
   const example = (
-    <div className="text-4xl py-5 wavy">
-      {gradientText(Array.from('Wavy Text')).map((stop, index) => (
-        <p
-          key={index}
-          className="inline-block uppercase tracking-widest"
-          style={{
-            ['--i' as any]: index + 1,
-            ['--r1' as any]: stop.startColor.red,
-            ['--g1' as any]: stop.startColor.blue,
-            ['--b1' as any]: stop.startColor.green,
-            ['--r2' as any]: stop.endColor.red,
-            ['--g2' as any]: stop.endColor.blue,
-            ['--b2' as any]: stop.endColor.green,
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2">
+        <label htmlFor="">Start Color:</label>
+        <input
+          type="color"
+          value={colors.startColor}
+          className=" appearance-none outline-none border-none"
+          onChange={(e) => {
+            setColors((prev) => {
+              return {
+                ...prev,
+                startColor: e.target.value,
+              };
+            });
           }}
-        >
-          {stop.char === ' ' ? <>&nbsp;</> : stop.char}
-        </p>
-      ))}
+        />
+      </div>
+      <div className="flex items-center gap-2">
+        <label htmlFor="">End Color:</label>
+        <input
+          type="color"
+          value={colors.endColor}
+          className=" appearance-none outline-none border-none"
+          onChange={(e) => {
+            setColors((prev) => {
+              return {
+                ...prev,
+                endColor: e.target.value,
+              };
+            });
+          }}
+        />
+      </div>
+      <div className="text-4xl py-5 wavy">
+        {gradientText(
+          Array.from('Wavy Text'),
+          colorStringToRGB(colors.startColor),
+          colorStringToRGB(colors.endColor),
+        ).map((stop, index) => (
+          <p
+            key={index}
+            className="inline-block uppercase tracking-widest"
+            style={{
+              ['--i' as any]: index + 1,
+              ['--r1' as any]: stop.startColor.red,
+              ['--g1' as any]: stop.startColor.green,
+              ['--b1' as any]: stop.startColor.blue,
+              ['--r2' as any]: stop.endColor.red,
+              ['--g2' as any]: stop.endColor.green,
+              ['--b2' as any]: stop.endColor.blue,
+            }}
+          >
+            {stop.char === ' ' ? <>&nbsp;</> : stop.char}
+          </p>
+        ))}
+      </div>
     </div>
   );
 
