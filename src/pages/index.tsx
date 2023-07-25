@@ -1,5 +1,4 @@
 import { gradientText } from '../common';
-import { IRGB, TColorRed, TColorGreen, TColorBlue } from '../types';
 
 export default function Home() {
   const arr = Array.from('Personal page');
@@ -8,18 +7,22 @@ export default function Home() {
     <div>
       <div className="text-4xl py-5 wavy">
         {/* <p className='tracking-wide uppercase font-extrabold bg-gradient-to-r from-blue-400  to-primary-400 inline-block text-transparent bg-clip-text'>{title}</p> */}
-        {gradientText(arr).map((stop, index) => (
+        {gradientText(
+          arr,
+          { red: 106, green: 153, blue: 235 },
+          { red: 101, green: 165, blue: 140 },
+        ).map((stop, index) => (
           <p
             key={index}
             className="inline-block uppercase tracking-widest"
             style={{
               ['--i' as any]: index + 1,
               ['--r1' as any]: stop.startColor.red,
-              ['--g1' as any]: stop.startColor.blue,
-              ['--b1' as any]: stop.startColor.green,
+              ['--g1' as any]: stop.startColor.green,
+              ['--b1' as any]: stop.startColor.blue,
               ['--r2' as any]: stop.endColor.red,
-              ['--g2' as any]: stop.endColor.blue,
-              ['--b2' as any]: stop.endColor.green,
+              ['--g2' as any]: stop.endColor.green,
+              ['--b2' as any]: stop.endColor.blue,
             }}
           >
             {stop.char === ' ' ? <>&nbsp;</> : stop.char}

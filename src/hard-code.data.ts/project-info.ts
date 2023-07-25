@@ -1,3 +1,4 @@
+import { link } from 'fs';
 import { IProjectInfo } from '../types';
 
 const webProjects: IProjectInfo[] = [
@@ -56,6 +57,29 @@ const appProjects: IProjectInfo[] = [
       'https://user-images.githubusercontent.com/60846680/254141295-808d76ee-01e6-4dfb-81b7-6f4ec18e3095.png',
       'https://user-images.githubusercontent.com/60846680/254141317-c89eb7ec-e62e-484a-a48c-4d5e9040cc8c.png',
       'https://user-images.githubusercontent.com/60846680/254141346-c9eb4598-5997-4e56-9608-152c4ab789fe.jpg',
+    ],
+  },
+  {
+    name: 'Minesweeper',
+    tags: [
+      'react-native',
+      'expo',
+      'tailwindcss',
+      'google-fonts',
+      'redux',
+      'ios-app',
+      'typescript',
+    ],
+    description:
+      'This Minesweeper is built in React Native by Expo. And used TailwindCss for Styling. I used Redux to store the data to restore the game data after users reopen the app. And I imported Google Font - IBM_Plex_Mono for styling.',
+    link: 'https://github.com/Vincy-Cheng/Minesweeper',
+    screenshot: [
+      'https://user-images.githubusercontent.com/60846680/255813748-5ffe1041-7160-450d-b18b-5e01b2a3d083.png',
+      'https://user-images.githubusercontent.com/60846680/255815426-ef4ce571-da38-4293-a351-e793bd55cfa6.png',
+      'https://user-images.githubusercontent.com/60846680/255815919-eb5ec710-0d2d-42ee-a158-2fa923f3871e.png',
+      'https://user-images.githubusercontent.com/60846680/255815045-177eca9c-b26d-42bd-8923-eae17be425a3.png',
+      'https://user-images.githubusercontent.com/60846680/255815312-8cb358e2-9c39-4c22-9b7f-474e5273b946.png',
+      'https://user-images.githubusercontent.com/60846680/255815602-463f09ca-5a1a-4647-b93a-369d6273efb2.png',
     ],
   },
 ];

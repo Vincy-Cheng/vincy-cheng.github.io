@@ -19,25 +19,27 @@ const colorCalculator = (
   };
 };
 
-const gradientText = (text: string[]) => {
+const gradientText = (text: string[], start: IRGB, end: IRGB) => {
   const steps = 1 / text.length;
+
   return text.map((char, index) => {
     const ratio1 = steps * (text.length - index);
     const ratio2 = steps * (text.length - index - 1);
-    const startColor = colorCalculator(
-      { red: 96, blue: 165, green: 250 },
-      { red: 101, blue: 159, green: 140 },
-      ratio1,
-      1 - ratio1,
-    );
-    const endColor = colorCalculator(
-      { red: 96, blue: 165, green: 250 },
-      { red: 101, blue: 159, green: 140 },
-      ratio2,
-      1 - ratio2,
-    );
+    const startColor = colorCalculator(start, end, ratio1, 1 - ratio1);
+    const endColor = colorCalculator(start, end, ratio2, 1 - ratio2);
+
     return { startColor, endColor, char };
   });
 };
 
-export { gradientText };
+const colorStringToRGB = (color: string): IRGB => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+
+  return {
+    red: parseInt(result ? result[1] : '0', 16),
+    green: parseInt(result ? result[2] : '0', 16),
+    blue: parseInt(result ? result[3] : '0', 16),
+  } as IRGB;
+};
+
+export { gradientText, colorStringToRGB };
