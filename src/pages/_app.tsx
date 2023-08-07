@@ -1,4 +1,5 @@
 import '@/styles/globals.css';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 import Layout from '../components/Layout';
 import { MenuOpenProvider } from '../provider/MenuOpenProvider';
@@ -13,7 +14,10 @@ export default function App({ Component, pageProps }: AppProps) {
       <DarkModeProvider>
         <MenuOpenProvider>
           <Layout>
-            <Component {...pageProps} />
+            <>
+              <Component {...pageProps} />
+              <Analytics />
+            </>
           </Layout>
         </MenuOpenProvider>
       </DarkModeProvider>
