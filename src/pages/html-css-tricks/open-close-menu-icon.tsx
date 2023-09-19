@@ -6,39 +6,39 @@ import HTMLAndCSSSourceCode from '../../components/HTMLAndCSSSourceCode';
 type Props = {};
 
 const htmlTag = `<div className="flex">
-  <div
-    className="my-auto"
+<div
+  className="my-auto"
+  style={{
+    width: isOpen ? size * 0.75 : size,
+    height: size * 0.75,
+    position: 'relative',
+    transform: 'rotate(0)',
+    transition: '0.5s ease-in-out',
+  }}
+>
+  <span
     style={{
-      width: size,
-      height: size * 0.75,
-      position: 'relative',
-      transform: 'rotate(0)',
-      transition: '0.5s ease-in-out',
+      ...commonStyle,
+      top: isOpen ? (size * 0.75) / 2 : 0,
+      transform: isOpen ? 'rotate(45deg)' : 'rotate(0)',
     }}
-  >
-    <span
-      style={{
-        ...commonStyle,
-        top: isOpen ? (stroke ?? 1) / 2 : 0,
-        transform: isOpen ? 'rotate(45deg)' : 'rotate(0)',
-      }}
-    ></span>
-    <span
-      style={{
-        ...commonStyle,
-        top: (size * 0.75) / 2,
-        width: isOpen ? '0' : '100%',
-        opacity: isOpen ? 0 : 1,
-      }}
-    ></span>
-    <span
-      style={{
-        ...commonStyle,
-        top: isOpen ? size * 0.75 - (stroke ?? 1) / 2 : size * 0.75,
-        transform: isOpen ? 'rotate(-45deg)' : 'rotate(0)',
-      }}
-    ></span>
-  </div>
+  ></span>
+  <span
+    style={{
+      ...commonStyle,
+      top: (size * 0.75) / 2,
+      width: isOpen ? '0' : size,
+      opacity: isOpen ? 0 : 1,
+    }}
+  ></span>
+  <span
+    style={{
+      ...commonStyle,
+      top: isOpen ? (size * 0.75) / 2 : size * 0.75,
+      transform: isOpen ? 'rotate(-45deg)' : 'rotate(0)',
+    }}
+  ></span>
+</div>
 </div>`;
 const tsCode = `
 type OpenCloseIconProps = {
@@ -50,15 +50,14 @@ type OpenCloseIconProps = {
 
 const commonStyle: React.CSSProperties = {
   height: stroke ?? 1,
-  width: '100%',
-  left: 0,
+  width: isOpen ? size * 0.75 : size,
   display: 'block',
   position: 'absolute',
-  transformOrigin: 'left center',
+  transformOrigin: 'center',
   transition: '.25s ease-in-out',
   borderRadius: size,
   opacity: 1,
-  background: color ?? 'black',
+  backgroundColor: color ?? 'black',
 };`;
 
 const cssScript = ``;
@@ -118,11 +117,11 @@ const OpenCloseMenuIcon = (props: Props) => {
       </div>
 
       <div
-        className="bg-white rounded-lg p-4 py-6"
+        className="bg-white rounded-lg p-4 w-fit"
         onClick={() => {
           setIsOpen((prev) => !prev);
         }}
-        style={{ width: size + 32 }}
+        // style={{ width: size }}
       >
         <OpenCloseIcon
           isOpen={isOpen}

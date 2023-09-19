@@ -26,11 +26,6 @@ const MenuIcon = ({}: MenuIconProps) => {
         color={isDarkMode ? '#F2F2F3' : '#0C0C0D'}
         size={24}
       />
-
-      {/* <Menu2
-        size={28}
-        className="dark:text-secondary-50 rounded-full hover:bg-secondary-200 dark:hover:bg-secondary-600 active:bg-secondary-500 dark:active:bg-secondary-500 p-1 cursor-pointer"
-      /> */}
     </div>
   );
 };
