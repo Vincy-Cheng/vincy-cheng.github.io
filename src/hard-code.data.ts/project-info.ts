@@ -32,6 +32,34 @@ const webProjects: IProjectInfo[] = [
       'https://user-images.githubusercontent.com/60846680/160234959-d85b8e9f-63a5-4699-a0dd-b2fa55b8e14e.png',
     ],
   },
+  {
+    name: 'Expense Tracker (NestJS & ReactJS)',
+    tags: [
+      'nodejs',
+      'reactjs',
+      'nestjs',
+      'database',
+      'mysql',
+      'docker',
+      'tailwindcss',
+      'typeorm',
+    ],
+    description:
+      'This is expense tracker web application. It is built with NestJS (backend), ReactJS (frontend) and MySQL (database). It had used some popular library like React-Toastify (message alert), dnd-kit (drag and drop), React Query (manage the API calling) and Chart.js. Most of the styling and design are referred to Monny app (https://greamer.com/)',
+    link: 'https://github.com/Vincy-Cheng/nestjs-expense-tracker',
+    screenshot: [
+      'https://user-images.githubusercontent.com/60846680/270617660-82505857-7261-480e-b6c7-6c939f0aa8f0.png',
+      'https://user-images.githubusercontent.com/60846680/270618033-65fe3aeb-e03d-4804-a537-5096ff8a5533.png',
+      'https://user-images.githubusercontent.com/60846680/270618134-5bdc8b45-05a5-4e2c-a561-b7cfafcb51fe.png',
+      'https://user-images.githubusercontent.com/60846680/270618253-19825f3c-cf36-4925-a35e-6e5ef51f3ff9.png',
+      'https://user-images.githubusercontent.com/60846680/270618370-11cf1f87-40d3-4f35-8467-0e0fe0720cba.png',
+      'https://user-images.githubusercontent.com/60846680/270618622-c724ce8b-57c1-45e6-909d-ab33f3741029.png',
+      'https://user-images.githubusercontent.com/60846680/270618698-44bc177a-19cb-4b61-bedf-cd1177e68d74.png',
+      'https://user-images.githubusercontent.com/60846680/270618999-a74ab4a2-5a55-47b0-86c8-5ab457791cb5.png',
+      'https://user-images.githubusercontent.com/60846680/270618786-2bad23e1-f054-40b9-a081-40ce8943f584.png',
+      'https://user-images.githubusercontent.com/60846680/270618877-e3b46ab5-8272-4b00-9e8b-e9411ac1688c.png',
+    ],
+  },
 ];
 const appProjects: IProjectInfo[] = [
   {
