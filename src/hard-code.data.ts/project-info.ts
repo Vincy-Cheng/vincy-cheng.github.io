@@ -45,7 +45,7 @@ const webProjects: IProjectInfo[] = [
       'typeorm',
     ],
     description:
-      'This is expense tracker web application. It is built with NestJS (backend), ReactJS (frontend) and MySQL (database). It had used some popular library like React-Toastify (message alert), dnd-kit (drag and drop), React Query (manage the API calling) and Chart.js. Most of the styling and design are referred to Monny app (https://greamer.com/)',
+      'This is expense tracker web application. It is built with NestJS (backend), ReactJS (frontend) and MySQL (database). It had used some popular library like React-Toastify (message alert), dnd-kit (drag and drop), React Query (manage the API calling) and Chart.js. The second branch is using Refine with Vite to build the frontend. Most of the styling and design are referred to Monny app (https://greamer.com/)',
     link: 'https://github.com/Vincy-Cheng/nestjs-expense-tracker',
     screenshot: [
       'https://user-images.githubusercontent.com/60846680/270617660-82505857-7261-480e-b6c7-6c939f0aa8f0.png',
