@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { colorStringToRGB, gradientText } from '../../common';
 import HTMLAndCSSSourceCode from '../../components/HTMLAndCSSSourceCode';
+import { RotateClockwise } from 'tabler-icons-react';
 
 type Props = {};
 
@@ -129,8 +130,10 @@ const VerticalWavyText = (props: Props) => {
   const [colors, setColors] = useState<{
     startColor: string;
     endColor: string;
-  }>({ startColor: '#6a99eb', endColor: '#2fcc63' });
+    text: string;
+  }>({ startColor: '#6a99eb', endColor: '#2fcc63', text: 'Wavy Text' });
   const router = useRouter();
+
   const example = (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
@@ -165,9 +168,37 @@ const VerticalWavyText = (props: Props) => {
           }}
         />
       </div>
+      <div className="flex items-center gap-2">
+        <label htmlFor="">Testing Text:</label>
+        <input
+          type="text"
+          className="outline-none dark:bg-zinc-900 rounded-sm"
+          onChange={(e) => {
+            setColors((prev) => {
+              return {
+                ...prev,
+                text: e.target.value,
+              };
+            });
+          }}
+        />
+        <div
+          className="flex gap-1 items-center p-1 bg-zinc-400 rounded-lg hover:bg-zinc-300 active:bg-zinc-200 cursor-pointer"
+          onClick={() => {
+            setColors({
+              startColor: '#6a99eb',
+              endColor: '#2fcc63',
+              text: 'Wavy Text',
+            });
+          }}
+        >
+          <span className="select-none">RESET</span>
+          <RotateClockwise strokeWidth={1} />
+        </div>
+      </div>
       <div className="text-4xl py-5 wavy">
         {gradientText(
-          Array.from('Wavy Text'),
+          Array.from(colors.text),
           colorStringToRGB(colors.startColor),
           colorStringToRGB(colors.endColor),
         ).map((stop, index) => (
@@ -213,6 +244,7 @@ const VerticalWavyText = (props: Props) => {
       </a>
     </div>
   );
+
   return (
     <HTMLAndCSSSourceCode
       router={router}
