@@ -1,29 +1,12 @@
 import React from 'react';
+import { references } from '../../hard-code.data.ts/reference.data';
 
 type Props = {};
 
-interface IReference {
+export interface IReference {
   text: string;
   link: string;
 }
-const references: IReference[] = [
-  {
-    text: 'Idea to make the scroll row',
-    link: 'https://stackoverflow.com/questions/56392199/make-a-button-to-scroll-horizontally-in-div',
-  },
-  {
-    text: 'Way to restrict number to a certain range (by creating Range interface)',
-    link: 'https://stackoverflow.com/questions/39494689/is-it-possible-to-restrict-number-to-a-certain-range/70307091#70307091',
-  },
-  {
-    text: 'Loading spinner',
-    link: 'https://tailwind-elements.com/docs/standard/components/spinners/',
-  },
-  {
-    text: 'Open Close Menu Icon',
-    link: 'https://codepen.io/designcouch/pen/ExvwPY',
-  },
-];
 
 const Reference = (props: Props) => {
   return (
