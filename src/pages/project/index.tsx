@@ -70,7 +70,6 @@ const Project = (props: Props) => {
           <div key={project.type + index}>
             {project.content.length > 0 && (
               <>
-                {' '}
                 <div className="border-b border-primary-500 text-lg ">
                   {project.type}
                 </div>

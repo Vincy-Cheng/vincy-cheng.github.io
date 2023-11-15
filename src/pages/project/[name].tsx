@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Error from 'next/error';
 import { useRouter } from 'next/router';
@@ -7,8 +7,9 @@ import {
   otherProjects,
   webProjects,
 } from '../../hard-code.data.ts/project-info';
-import { ChevronLeft } from 'tabler-icons-react';
 import BackIconButton from '../../components/BackIconButton';
+import Spinner from '../../components/Spinner';
+import clsx from 'clsx';
 
 export interface ProjectInfoProps {}
 
@@ -20,6 +21,10 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
     webProjects.find((webProject) => webProject.name === name) ??
     appProjects.find((appProject) => appProject.name === name) ??
     otherProjects.find((otherProject) => otherProject.name === name);
+
+  const [reveal, setReveal] = useState<boolean[]>(
+    info?.screenshot.map(() => false) ?? [],
+  );
 
   if (!info) {
     return <Error statusCode={404} title="page Not Found" />;
@@ -46,9 +51,34 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
         </a>
       </div>
 
-      {info?.screenshot.map((image) => (
-        <div key={image} className="w-full relative pt-[100%] top-0">
-          <Image src={image} alt={'/'} fill style={{ objectFit: 'contain' }} />
+      {info?.screenshot.map((image, index) => (
+        <div key={image} className="w-full text-center">
+          <Image
+            src={image}
+            alt={'/'}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-auto h-auto max-h-[50rem] min-h-[10rem]"
+            onError={() =>
+              setReveal((prev) => {
+                const tmp = [...prev];
+                tmp[index] = true;
+                return tmp;
+              })
+            }
+            onLoadingComplete={() => {
+              setReveal((prev) => {
+                const tmp = [...prev];
+                tmp[index] = true;
+                return tmp;
+              });
+            }}
+          />
+
+          <span className={clsx('', reveal[index] ? 'hidden' : 'inline-block')}>
+            <Spinner />
+          </span>
         </div>
       ))}
     </div>
