@@ -8,6 +8,7 @@ import {
   Tool,
   Mail,
   Hammer,
+  DeviceGamepad,
 } from 'tabler-icons-react';
 import { useMenu } from '../../provider/MenuOpenProvider';
 import { ISideBarMenuItem } from '../../types';
@@ -46,6 +47,11 @@ export const menuItems: ISideBarMenuItem[] = [
     path: '/contact',
     icon: <Mail className={MenuItemClasses} />,
     title: 'Contact',
+  },
+  {
+    path: '/mini-games',
+    icon: <DeviceGamepad className={MenuItemClasses} />,
+    title: 'Mini Game',
   },
 ];
 
