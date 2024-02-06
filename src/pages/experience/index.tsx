@@ -19,9 +19,8 @@ const Experience = (props: Props) => {
                 <thead>
                   <tr className="text-left">
                     <th className="grow">{value}</th>
-                    <th className="w-[20%]">Level</th>
-                    <th className="w-[20%]">Start date</th>
-                    <th className="w-[20%] text">Around year</th>
+                    <th className="w-[30%]">Level</th>
+                    <th className="w-[30%] text">Around year</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -31,11 +30,6 @@ const Experience = (props: Props) => {
                       <tr key={skill.name}>
                         <td>{skill.name}</td>
                         <td>{skill.level}</td>
-                        <td>
-                          {DateTime.fromJSDate(skill.startTime).toFormat(
-                            'yyyy-LL-dd',
-                          )}
-                        </td>
                         <td>
                           {skill.around.type} {skill.around.year}
                         </td>

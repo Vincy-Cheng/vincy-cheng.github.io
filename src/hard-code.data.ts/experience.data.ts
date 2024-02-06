@@ -11,7 +11,7 @@ const skills: ISkillExperienceSet[] = [
     type: ESkillType.language,
     level: ELevel.intermediate,
     startTime: new Date(2022, 6 - 1, 20),
-    around: { year: 1, type: '~' },
+    around: { year: 1.5, type: '~' },
   },
   {
     name: 'JavaScript',
@@ -158,6 +158,13 @@ const skills: ISkillExperienceSet[] = [
     type: ESkillType.cloudPlatform,
     level: ELevel.beginner,
     startTime: new Date(2022, 1 - 1, 1),
+    around: { year: 1, type: '<' },
+  },
+  {
+    name: 'Swift',
+    type: ESkillType.language,
+    level: ELevel.beginner,
+    startTime: new Date(2023, 12 - 1, 1),
     around: { year: 1, type: '<' },
   },
 ];
