@@ -14,7 +14,7 @@ const MenuIcon = ({}: MenuIconProps) => {
   return (
     <div
       className={clsx(
-        'dark:text-secondary-50 relative duration-300 p-2 pl-4 pt-3',
+        'dark:text-secondary-50 relative duration-300 p-2 pt-3',
         isSideBarOpen ? sideBarOpenWidth : sideBarCloseWidth,
       )}
       onClick={() => toggle()}
