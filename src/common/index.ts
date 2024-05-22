@@ -1,4 +1,4 @@
-import { IRGB, TColorRed, TColorGreen, TColorBlue } from '../types';
+import { IRGB, TColorRed, TColorGreen, TColorBlue } from '../app/_types';
 
 const colorCalculator = (
   color1: IRGB,
