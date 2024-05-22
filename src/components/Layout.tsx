@@ -34,10 +34,10 @@ const Layout = ({ children }: LayoutProps) => {
 
         <div
           className="p-2 w-full overflow-auto"
-          style={{
-            backgroundImage: 'url(/bg-copy-2.png)',
-            backgroundRepeat: 'repeat',
-          }}
+          // style={{
+          //   backgroundImage: 'url(/bg-copy-2.png)',
+          //   backgroundRepeat: 'repeat',
+          // }}
         >
           {children}
         </div>
