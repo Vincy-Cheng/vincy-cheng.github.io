@@ -12,11 +12,18 @@ import BackIconButton from '../../components/BackIconButton';
 import Spinner from '../../components/Spinner';
 import clsx from 'clsx';
 import { useParams, useRouter } from 'next/navigation';
+import { useDarkMode } from '@/app/_provider/DarkModeProvider';
 
 export interface ProjectInfoProps {}
 
+interface Reveal {
+  status: boolean;
+  retry: number;
+}
+
 const ProjectInfo = ({}: ProjectInfoProps) => {
   const router = useRouter();
+  const { isDarkMode } = useDarkMode();
 
   let { name } = useParams();
   name = decodeURIComponent(name as string);
@@ -26,8 +33,10 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
     appProjects.find((appProject) => appProject.name === name) ??
     otherProjects.find((otherProject) => otherProject.name === name);
 
-  const [reveal, setReveal] = useState<boolean[]>(
-    info?.screenshot.map(() => false) ?? [],
+  const [reveal, setReveal] = useState<Reveal[]>(
+    info?.screenshot.map(() => {
+      return { status: false, retry: 0 };
+    }) ?? [],
   );
 
   if (!info) {
@@ -64,17 +73,29 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
             height={0}
             sizes="100vw"
             className="w-auto h-auto max-h-[50rem] min-h-[10rem]"
-            onError={() =>
+            onError={() => {
               setReveal((prev) => {
                 const tmp = [...prev];
-                tmp[index] = true;
+                if (tmp[index].retry < 3) {
+                  // Set your limit here
+                  tmp[index] = { status: true, retry: tmp[index].retry + 1 };
+                }
+
+                // If the limit is reached, change the src attribute to a fallback image or remove the src attribute
+                if (tmp[index].retry >= 3) {
+                  // Or set to a fallback image
+
+                  info.screenshot[index] = isDarkMode
+                    ? '/image-404-dark.png'
+                    : '/image-404-light.png';
+                }
                 return tmp;
-              })
-            }
+              });
+            }}
             onLoad={() => {
               setReveal((prev) => {
                 const tmp = [...prev];
-                tmp[index] = true;
+                tmp[index] = { status: true, retry: tmp[index].retry };
                 return tmp;
               });
             }}
