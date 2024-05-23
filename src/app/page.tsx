@@ -24,6 +24,7 @@ export default function Home() {
               ['--r2' as any]: stop.endColor.red,
               ['--g2' as any]: stop.endColor.green,
               ['--b2' as any]: stop.endColor.blue,
+              textShadow: '2px 2px 4px rgba(255, 255, 255, 0.2)', // Add this line
             }}
           >
             {stop.char === ' ' ? <>&nbsp;</> : stop.char}

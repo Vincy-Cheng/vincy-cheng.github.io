@@ -56,7 +56,7 @@ const ProjectInfo = ({}: ProjectInfoProps) => {
       </div>
 
       {info?.screenshot.map((image, index) => (
-        <div key={image} className="w-full text-center">
+        <div key={`image-${index}-${image}`} className="w-full text-center">
           <Image
             src={image}
             alt={'/'}
